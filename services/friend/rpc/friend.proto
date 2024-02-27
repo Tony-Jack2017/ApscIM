@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+message AddFriendReq {
+  int32 promoter_id = 1;
+  int32 recipient_id = 2;
+}
+
+message AddFriendResp {
+}
+
+message DelFriendReq {
+}
