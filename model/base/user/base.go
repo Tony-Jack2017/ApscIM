@@ -1,6 +1,7 @@
 package user
 
 type User struct {
+	ID          int16  `json:"id"`
 	UserID      int16  `json:"user_id,omitempty"`
 	Username    string `json:"username"`
 	Avatar      string `json:"avatar"`

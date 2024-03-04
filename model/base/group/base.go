@@ -1,6 +1,9 @@
 package group
 
-import "ApscIM/model/common"
+import (
+	"ApscIM/model/common"
+	"context"
+)
 
 type Group struct {
 	GroupID     int16  `json:"group_id"`
@@ -8,6 +11,7 @@ type Group struct {
 	GroupName   string `json:"group_name"`
 	Cover       string `json:"cover"`
 	Description string `json:"description"`
+	GroupType   int16  `json:"group_type"`
 	common.BaseTime
 }
 
@@ -33,4 +37,23 @@ type NotifyGroup struct {
 	Title    string `json:"title"`
 	Content  string `json:"content"`
 	common.BaseTime
+}
+
+type ActionGroupInterface interface {
+
+	/* Base */
+
+	CreateGroup(ctx context.Context, group Group) (err error)
+	UpdateGroupInfo(ctx context.Context, groupID int16) (err error)
+	GetGroupInfo(ctx context.Context, groupID int16) (group Group, err error)
+
+	/* Member */
+
+	GetGroupMembers(ctx context.Context, groupID int16) (members []MemberGroup, err error)
+	AddGroupMembers(ctx context.Context, userIDs []int16) (err error)
+
+	/* Setting */
+
+	GetGroupSetting(ctx context.Context, groupID int16) (setting SettingGroup, err error)
+	UpdateGroupSetting(ctx context.Context, setting SettingGroup) (err error)
 }

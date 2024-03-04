@@ -1,16 +1,18 @@
 syntax = "proto3";
+package ApscIM.msg;
+//import "data/data.proto";
 
-message SendMessageReq {
-  int32 sender_id = 1;
-  int32 channel_id = 2;
-  int32 message_type = 3;
-  string message_content = 4;
+message GetMessageListReq {
 }
 
-message SendMessageResp {
-  int32 message_status = 1;
+message GetMessageListResp {
+//  repeated data.MessageInfo = 1;
 }
 
-message PushMessageReq {
-  int32 message_id = 1;
+message DelMessagesReq {
+  repeated int32 ids = 1;
 }
+
+message DelMessagesResp {
+}
+

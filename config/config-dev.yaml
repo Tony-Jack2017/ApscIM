@@ -1,7 +1,6 @@
 system:
   version: "v1.0.0"
 
-
 database:
   mysql:
     host: "192.168.2.1"
@@ -19,10 +18,8 @@ database:
     host: "192.168.2.3"
     port: "1234"
     dbname: "im_serve"
-
-
-objStorage:
-  host: "192.168.2.3"
-  port: "9000"
-  driver: "mysql"
-  dbname: "minio"
+  minio:
+    host: "192.168.2.3"
+    port: "9000"
+    driver: "mysql"
+    dbname: "minio"

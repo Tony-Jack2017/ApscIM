@@ -9,8 +9,7 @@ import (
 var Conf Config
 
 type Config struct {
-	Database   `json:"database" mapstructure:"database"`
-	ObjStorage `json:"objStorage" mapstructure:"objStorage"`
+	Database `json:"database" mapstructure:"database"`
 }
 
 type MysqlConfig struct {
@@ -29,22 +28,23 @@ type RedisConfig struct {
 	Password string `mapstructure:"password"`
 }
 
-type MongoDBConfig struct {
+type MongoConfig struct {
+	Host   string `mapstructure:"host"`
+	Port   string `mapstructure:"port"`
+	DbName string `mapstructure:"dbname"`
+}
+
+type MinioConfig struct {
 	Host   string `mapstructure:"host"`
 	Port   string `mapstructure:"port"`
 	DbName string `mapstructure:"dbname"`
 }
 
 type Database struct {
-	Mysql   MysqlConfig   `json:"mysql" mapstructure:"mysql"`
-	Redis   RedisConfig   `json:"redis" mapstructure:"redis"`
-	MongoDB MongoDBConfig `json:"mongodb" mapstructure:"mongodb"`
-}
-
-type ObjStorage struct {
-	Host   string `mapstructure:"host"`
-	Port   string `mapstructure:"port"`
-	DbName string `mapstructure:"dbname"`
+	Mysql MysqlConfig `json:"mysql" mapstructure:"mysql"`
+	Redis RedisConfig `json:"redis" mapstructure:"redis"`
+	Mongo MongoConfig `json:"mongo" mapstructure:"mongo"`
+	Minio MinioConfig `json:"minio" mapstructure:"minio"`
 }
 
 func Init() error {
