@@ -5,6 +5,6 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func UserRoutes(userGroup *gin.RouterGroup) {
-	userGroup.POST("/login", user2.Login)
+func UserRoutes(userChannel *gin.RouterChannel) {
+	userChannel.POST("/login", user2.Login)
 }

@@ -5,6 +5,6 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func AdminRoutes(adminGroup *gin.RouterGroup) {
-	adminGroup.POST("/login", admin.Login)
+func AdminRoutes(adminChannel *gin.RouterChannel) {
+	adminChannel.POST("/login", admin.Login)
 }

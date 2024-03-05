@@ -7,9 +7,11 @@ import (
 	"gorm.io/gorm"
 )
 
-var DB *gorm.DB
+type MysqlService struct {
+	conn *gorm.DB
+}
 
-func RunMysql() {
+func NewMysqlService() (*MysqlService, error) {
 	dsn := fmt.Sprintf(
 		"%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local",
 		config.Conf.Database.Mysql.User,
@@ -30,6 +32,9 @@ func RunMysql() {
 
 	if err != nil {
 		panic(fmt.Errorf("when connecting the mysql service occure the error: %v", err))
+		return nil, err
 	}
-	DB = db
+	return &MysqlService{
+		conn: db,
+	}, nil
 }

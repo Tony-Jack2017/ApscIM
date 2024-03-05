@@ -2,6 +2,6 @@ package http
 
 import "github.com/gin-gonic/gin"
 
-func MessageRoutes(messageGroup *gin.RouterGroup) {
-	messageGroup.GET("/getMessageList")
+func MessageRoutes(messageChannel *gin.RouterChannel) {
+	messageChannel.GET("/getMessageList")
 }

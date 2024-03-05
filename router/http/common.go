@@ -5,6 +5,6 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func CommonRoutes(commonGroup *gin.RouterGroup) {
-	commonGroup.POST("/send/codd", common.SendCode)
+func CommonRoutes(commonChannel *gin.RouterChannel) {
+	commonChannel.POST("/send/codd", common.SendCode)
 }

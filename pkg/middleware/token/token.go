@@ -9,12 +9,12 @@ const expired = 24 // hour
 const secret = "apsc_im"
 
 type ApscClaims struct {
-	AccountID   int16  `json:"account_id"`
+	AccountID   int32  `json:"account_id"`
 	AccountRole string `json:"account_role"`
 	jwt.RegisteredClaims
 }
 
-func GenerateToken(accountID int16, accountRole string) (string, error) {
+func GenerateToken(accountID int32, accountRole string) (string, error) {
 	claims := &ApscClaims{
 		AccountID:   accountID,
 		AccountRole: accountRole,

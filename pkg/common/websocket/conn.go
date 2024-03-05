@@ -12,8 +12,8 @@ import (
 )
 
 type WsConnection struct {
-	clientID         int16
-	userID           int16
+	clientID         int32
+	userID           int32
 	conn             *websocket.Conn
 	handshakeTimeout time.Duration
 	writeBufferSize  int
@@ -35,7 +35,7 @@ func (ws *WsConnection) ParseArgs(writer http.ResponseWriter, req *http.Request)
 		if err != nil {
 			return errors.New("the type of 'client_id' must is number")
 		} else {
-			ws.clientID = int16(cache)
+			ws.clientID = int32(cache)
 		}
 	}
 
@@ -48,7 +48,7 @@ func (ws *WsConnection) ParseArgs(writer http.ResponseWriter, req *http.Request)
 			writer.Write([]byte("the type of 'user_id' must is number !!!"))
 			return errors.New("the type of 'user_id' must is number")
 		} else {
-			ws.clientID = int16(cache)
+			ws.clientID = int32(cache)
 		}
 	}
 

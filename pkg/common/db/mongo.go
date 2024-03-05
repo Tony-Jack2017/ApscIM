@@ -1,4 +1,8 @@
 package db
 
-func NewMongoService() {
+type MongoService struct {
+}
+
+func NewMongoService() (*MongoService, error) {
+	return &MongoService{}, nil
 }
