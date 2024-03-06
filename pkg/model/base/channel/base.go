@@ -18,6 +18,10 @@ type Channel struct {
 	common.BaseTime
 }
 
+func (c *Channel) TableName() string {
+	return "apsc_im_channels"
+}
+
 type SettingChannel struct {
 	ChannelID              int32 `json:"channel_id"`
 	MuteStatus             int   `json:"mute_status"`
@@ -25,6 +29,10 @@ type SettingChannel struct {
 	AllowInvite            bool  `json:"allow_invite"`
 	AllowMemberApplyFriend bool  `json:"allow_member_apply_friend"`
 	common.BaseTime
+}
+
+func (s *SettingChannel) TableName() string {
+	return "apsc_im_channel_settings"
 }
 
 type MemberChannel struct {
@@ -35,6 +43,10 @@ type MemberChannel struct {
 	NoticeStatus  int    `json:"notice_status"`
 }
 
+func (m *MemberChannel) TableName() string {
+	return "apsc_im_channel_members"
+}
+
 type NotifyChannel struct {
 	ChannelID    int32  `json:"Channel_id"`
 	NotifyID     int32  `json:"notify_id"`
@@ -43,6 +55,17 @@ type NotifyChannel struct {
 	Title        string `json:"title"`
 	Content      string `json:"content"`
 	common.BaseTime
+}
+
+func (n *NotifyChannel) TableName() string {
+	return "apsc_im_channel_notifies"
+}
+
+type SqlChannel struct {
+	base    Channel
+	setting SettingChannel
+	member  MemberChannel
+	notify  NotifyChannel
 }
 
 type ActionChannelInterface interface {

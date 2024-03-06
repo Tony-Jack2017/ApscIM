@@ -14,6 +14,10 @@ type Friend struct {
 	common.BaseTime
 }
 
+func (f *Friend) TableName() string {
+	return "apsc_im_friends"
+}
+
 type AddFriendApply struct {
 	PromoterID  int32  `json:"promoter_id"`
 	RecipientID int32  `json:"recipient_id"`
@@ -23,7 +27,21 @@ type AddFriendApply struct {
 	common.BaseTime
 }
 
+func (a *AddFriendApply) TableName() string {
+	return "apsc_im_friend_applies"
+}
+
 type SettingFriend struct {
+}
+
+func (s *SettingFriend) TableName() string {
+	return "apsc_im_friend_settings"
+}
+
+type SqlFriend struct {
+	base    Friend
+	apply   AddFriendApply
+	setting SettingFriend
 }
 
 type ActionFriendInterface interface {

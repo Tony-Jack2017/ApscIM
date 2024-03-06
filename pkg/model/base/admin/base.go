@@ -21,7 +21,7 @@ func (a *Admin) TableName() string {
 	return "apsc_im_admins"
 }
 
-type SQLAdmin struct {
+type SqlAdmin struct {
 	base    Admin
 	setting SettingAdmin
 }

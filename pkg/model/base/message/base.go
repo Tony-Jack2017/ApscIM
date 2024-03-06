@@ -14,8 +14,12 @@ type Message struct {
 	common.BaseTime
 }
 
-func TableName() string {
+func (m *Message) TableName() string {
 	return "apsc_messages"
+}
+
+type SqlMessage struct {
+	base Message
 }
 
 type ActionMessageInterface interface {
