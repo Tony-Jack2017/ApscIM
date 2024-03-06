@@ -13,6 +13,7 @@ type User struct {
 	Type        int    `json:"type"`
 	Description string `json:"description"`
 	Agent       bool   `json:"agent"`
+	AccountID   int32  `json:"account_id"`
 	common.BaseTime
 }
 
@@ -31,7 +32,7 @@ func (s *SettingUser) TableName() string {
 	return "apsc_im_user_settings"
 }
 
-type ActionUserInterface interface {
+type SqlUserInterface interface {
 
 	/* Base */
 
@@ -44,4 +45,10 @@ type ActionUserInterface interface {
 	CreateUserSetting(ctx context.Context, setting SettingUser) (err error)
 	UpdateUserSetting(ctx context.Context, setting SettingUser) (err error)
 	GetUserSetting(ctx context.Context, userID int32) (setting *SettingUser, err error)
+}
+
+type RdsUserInterface interface {
+}
+
+type MgoUserInterface interface {
 }

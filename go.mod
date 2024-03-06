@@ -2,8 +2,6 @@ module ApscIM
 
 go 1.21
 
-toolchain go1.21.7
-
 require (
 	github.com/fsnotify/fsnotify v1.7.0
 	github.com/gin-gonic/gin v1.9.1

@@ -2,6 +2,7 @@ package message
 
 import (
 	"ApscIM/pkg/model/common"
+	"context"
 )
 
 type Message struct {
@@ -22,5 +23,17 @@ type SqlMessage struct {
 	base Message
 }
 
-type ActionMessageInterface interface {
+type SqlMessageInterface interface {
+
+	/* Base */
+
+	CreateMessage(ctx context.Context, message Message) (err error)
+	UpdateMessage(ctx context.Context, message Message) (err error)
+	GetMessages(ctx context.Context, message Message) (messages *[]Message, err error)
+}
+
+type RdsMessageInterface interface {
+}
+
+type MgoMessageInterface interface {
 }

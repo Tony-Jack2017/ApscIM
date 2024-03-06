@@ -1,5 +1,11 @@
 package admin
 
-type AddAdminReq struct {
+import "ApscIM/pkg/model/common"
+
+type CreateAdminReq struct {
 	AdminName string `json:"admin_name"`
+}
+
+type CreateAdminResp struct {
+	common.RespBase
 }

@@ -68,7 +68,7 @@ type SqlChannel struct {
 	notify  NotifyChannel
 }
 
-type ActionChannelInterface interface {
+type SqlChannelInterface interface {
 
 	/* Base */
 
@@ -91,4 +91,10 @@ type ActionChannelInterface interface {
 	CreateNotify(ctx context.Context, notify NotifyChannel) (err error)
 	UpdateNotify(ctx context.Context, notify NotifyChannel) (err error)
 	GetNotifies(ctx context.Context, ChannelID int32) (notifies *[]NotifyChannel, err error)
+}
+
+type RdsChannelInterface interface {
+}
+
+type MgoChannelInterface interface {
 }

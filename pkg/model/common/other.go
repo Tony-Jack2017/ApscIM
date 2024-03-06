@@ -1,8 +1,12 @@
 package common
 
-type RespCommon struct {
-	Code    string      `json:"code"`
-	Status  string      `json:"status"`
-	Message string      `json:"message"`
-	Data    interface{} `json:"data"`
+type RespBase struct {
+	Code    int    `json:"code"`
+	Success bool   `json:"success"`
+	Message string `json:"message"`
+}
+
+type RespData struct {
+	RespBase
+	Data interface{} `json:"data"`
 }

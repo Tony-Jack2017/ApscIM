@@ -44,7 +44,7 @@ type SqlFriend struct {
 	setting SettingFriend
 }
 
-type ActionFriendInterface interface {
+type SqlFriendInterface interface {
 
 	/* Base */
 
@@ -62,4 +62,10 @@ type ActionFriendInterface interface {
 	AddFriendSetting(ctx context.Context, setting SettingFriend) (err error)
 	UpdateFriendSetting(ctx context.Context, setting SettingFriend) (err error)
 	GetFriendSetting(ctx context.Context, friendID int32, userID int32) (setting *SettingFriend, err error)
+}
+
+type RdsFriendInterface interface {
+}
+
+type MgoFriendInterface interface {
 }

@@ -12,6 +12,7 @@ type Account struct {
 	Email     string `json:"email"`
 	Mobile    string `json:"mobile"`
 	Region    int    `json:"region"`
+	Status    int    `json:"status"`
 	common.BaseTime
 }
 
@@ -34,7 +35,7 @@ type SQLAccount struct {
 	setting SettingAccount
 }
 
-type ActionAccountInterface interface {
+type SqlAccountInterface interface {
 
 	/* Base */
 
@@ -49,5 +50,8 @@ type ActionAccountInterface interface {
 	UpdateAccountSetting(ctx context.Context, setting SettingAccount) (err error)
 }
 
-func (sql *SQLAccount) AddAccount() {
+type RdsAccountInterface interface {
+}
+
+type MgoAccountInterface interface {
 }

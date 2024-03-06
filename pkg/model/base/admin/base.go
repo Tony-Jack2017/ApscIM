@@ -10,6 +10,7 @@ type Admin struct {
 	AdminNo   int32  `json:"admin_no"`
 	AdminName string `json:"admin_name"`
 	Avatar    string `json:"avatar"`
+	AccountID int32  `json:"account_id"`
 	common.BaseTime
 }
 
@@ -26,7 +27,7 @@ type SqlAdmin struct {
 	setting SettingAdmin
 }
 
-type ActionAdminInterface interface {
+type SqlAdminInterface interface {
 
 	/* Base */
 
@@ -41,26 +42,8 @@ type ActionAdminInterface interface {
 	GetAdminSetting(ctx context.Context, adminID int32) (setting *SettingAdmin, err error)
 }
 
-func CreateAdmin(ctx context.Context, admin Admin) (err error) {
-	return nil
+type RdsAdminInterface interface {
 }
 
-func GetAdmins(ctx context.Context, condition Admin) (admins *[]Admin, err error) {
-	return nil, nil
-}
-
-func UpdateAdmin(ctx context.Context, new Admin) (err error) {
-	return nil
-}
-
-func CreateAdminSetting(ctx context.Context, admin SettingAdmin) (err error) {
-	return nil
-}
-
-func UpdateAdminSetting(ctx context.Context, setting SettingAdmin) (err error) {
-	return nil
-}
-
-func GetAdminSetting(ctx context.Context, adminID int32) (setting *SettingAdmin, err error) {
-	return nil, nil
+type MgoAdminInterface interface {
 }
