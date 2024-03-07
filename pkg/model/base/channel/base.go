@@ -28,6 +28,7 @@ type SettingChannel struct {
 	JoinNeedVerify         bool  `json:"join_need_verify"`
 	AllowInvite            bool  `json:"allow_invite"`
 	AllowMemberApplyFriend bool  `json:"allow_member_apply_friend"`
+	MaxMemberNumber        int   `json:"max_member_number"`
 	common.BaseTime
 }
 

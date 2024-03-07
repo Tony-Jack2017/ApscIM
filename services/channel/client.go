@@ -1,4 +1,11 @@
 package channel
 
-type channelClient struct {
+import "google.golang.org/grpc"
+
+type RpcClientChannel struct {
+	conn grpc.ClientConnInterface
+}
+
+func NewRpcClientChannel() RpcClientChannel {
+	return RpcClientChannel{}
 }
