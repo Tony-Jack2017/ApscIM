@@ -7,5 +7,4 @@ type DatabaseAdmin struct {
 }
 
 func NewAdminDatabase() {
-
 }

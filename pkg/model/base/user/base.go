@@ -36,9 +36,9 @@ type SqlUserInterface interface {
 
 	/* Base */
 
-	CreateUser(ctx context.Context, user User) (err error)
-	UpdateUser(ctx context.Context, user User) (err error)
-	GetUsers(ctx context.Context, user User) (users *[]User, err error)
+	CreateUsers(ctx context.Context, user *User) (err error)
+	UpdateUser(ctx context.Context, user *User) (err error)
+	GetUsers(ctx context.Context, user *User) (users *[]User, err error)
 
 	/* Setting */
 
@@ -51,4 +51,5 @@ type RdsUserInterface interface {
 }
 
 type MgoUserInterface interface {
+	CreateUsers(ctx context.Context, users []User) (err error)
 }

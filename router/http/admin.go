@@ -1,10 +1,10 @@
 package http
 
 import (
-	"ApscIM/api/admin/admin"
+	"ApscIM/api/admin"
 	"github.com/gin-gonic/gin"
 )
 
-func AdminRoutes(adminChannel *gin.RouterChannel) {
+func AdminRoutes(adminChannel *gin.RouterGroup) {
 	adminChannel.POST("/login", admin.Login)
 }

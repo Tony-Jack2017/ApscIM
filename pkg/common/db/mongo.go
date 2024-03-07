@@ -9,6 +9,7 @@ import (
 
 type MongoService struct {
 	client *mongo.Client
+	db     *mongo.Database
 }
 
 func NewMongoService() (*MongoService, error) {
@@ -18,10 +19,13 @@ func NewMongoService() (*MongoService, error) {
 		ctx,
 		options.Client().ApplyURI("mongodb://localhost:27017"),
 	)
+	//2.选择数据库 my_db
+	db := client.Database("apsc_im")
 	if err != nil {
 		return nil, err
 	}
 	return &MongoService{
 		client,
+		db,
 	}, nil
 }

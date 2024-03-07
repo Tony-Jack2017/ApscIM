@@ -2,6 +2,7 @@ package user
 
 import (
 	"ApscIM/pkg/model/base/account"
+	"ApscIM/pkg/model/base/admin"
 	"ApscIM/pkg/model/base/user"
 	"ApscIM/services/channel"
 	"ApscIM/services/friend"
@@ -10,6 +11,7 @@ import (
 
 type userServer struct {
 	accountDatabase account.DatabaseAccount
+	adminDatabase   admin.DatabaseAdmin
 	userDatabase    user.DatabaseUser
 	friendClient    *friend.RpcClientFriend
 	channelClient   *channel.RpcClientChannel

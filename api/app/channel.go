@@ -1,7 +1,16 @@
-package Channel
+package app
 
 import "github.com/gin-gonic/gin"
 
-func GetChannelByUser(context *gin.Context) {
+func CreateChannel(context *gin.Context) {
 
+}
+
+func GetChannelByUser(context *gin.Context) {
+}
+
+func UpdateChannelInfo(context *gin.Context) {
+}
+
+func SetChannelSetting(context *gin.Context) {
 }
