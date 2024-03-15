@@ -1,11 +1,7 @@
 package main
 
-import "ApscIM/pkg/common/websocket"
+import "ApscIM/router/http"
 
 func main() {
-	server := &websocket.WsServer{
-		Port:          8080,
-		MaxConnNumber: 100,
-	}
-	server.Run()
+	http.Run()
 }

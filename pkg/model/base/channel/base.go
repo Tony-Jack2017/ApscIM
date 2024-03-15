@@ -24,7 +24,6 @@ func (c *Channel) TableName() string {
 
 type SettingChannel struct {
 	ChannelID              int32 `json:"channel_id"`
-	MuteStatus             int   `json:"mute_status"`
 	JoinNeedVerify         bool  `json:"join_need_verify"`
 	AllowInvite            bool  `json:"allow_invite"`
 	AllowMemberApplyFriend bool  `json:"allow_member_apply_friend"`
@@ -74,28 +73,50 @@ type SqlChannelInterface interface {
 	/* Base */
 
 	CreateChannel(ctx context.Context, channel Channel) (err error)
-	UpdateChannelInfo(ctx context.Context, ChannelID int32) (err error)
-	GetChannelInfo(ctx context.Context, ChannelID int32) (channel *Channel, err error)
+	UpdateChannelInfo(ctx context.Context, channelID int32) (err error)
+	GetChannelInfo(ctx context.Context, channelID int32) (channel *Channel, err error)
 
 	/* Member */
 
-	GetChannelMembers(ctx context.Context, ChannelID int32) (members *[]MemberChannel, err error)
+	GetChannelMembers(ctx context.Context, channelID int32) (members *[]MemberChannel, err error)
 	AddChannelMembers(ctx context.Context, userIDs []int32) (err error)
 
 	/* Setting */
 
-	GetChannelSetting(ctx context.Context, ChannelID int32) (setting *SettingChannel, err error)
+	GetChannelSetting(ctx context.Context, channelID int32) (setting *SettingChannel, err error)
 	UpdateChannelSetting(ctx context.Context, setting *SettingChannel) (err error)
 
 	/* Notify */
 
 	CreateNotify(ctx context.Context, notify NotifyChannel) (err error)
 	UpdateNotify(ctx context.Context, notify NotifyChannel) (err error)
-	GetNotifies(ctx context.Context, ChannelID int32) (notifies *[]NotifyChannel, err error)
+	GetNotifies(ctx context.Context, channelID int32) (notifies *[]NotifyChannel, err error)
 }
 
 type RdsChannelInterface interface {
 }
 
 type MgoChannelInterface interface {
+
+	/* Base */
+
+	CreateChannel(ctx context.Context, channel Channel) (err error)
+	UpdateChannel(ctx context.Context, channel Channel) (err error)
+	GetChannelInfo(ctx context.Context, channelID int32) (err error)
+
+	/* Member */
+
+	GetChannelMembers(ctx context.Context, channelID int32) (members *[]MemberChannel, err error)
+	AddChannelMembers(ctx context.Context, userIDs []int32) (err error)
+
+	/* Setting */
+
+	GetChannelSetting(ctx context.Context, channelID int32) (setting *SettingChannel, err error)
+	UpdateChannelSetting(ctx context.Context, setting *SettingChannel) (err error)
+
+	/* Notify */
+
+	CreateNotify(ctx context.Context, notify NotifyChannel) (err error)
+	UpdateNotify(ctx context.Context, notify NotifyChannel) (err error)
+	GetNotifies(ctx context.Context, channelID int32) (notifies *[]NotifyChannel, err error)
 }

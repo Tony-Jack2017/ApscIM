@@ -1,4 +1,7 @@
 syntax = "proto3";
+package ApscIM.channel;
+import "data/rpc/data.proto";
+option go_package = "channel/rpc";
 
 message CreateChannelReq {
   int32 channel_name = 1;
@@ -16,5 +19,5 @@ message GetChannelListReq {
 }
 
 message GetChannelListResp {
-
+  repeated data.ChannelInfo channel_list = 3;
 }

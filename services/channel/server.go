@@ -35,3 +35,20 @@ func (s *channelServer) SetChannelSetting(ctx context.Context) {
 
 func (s *channelServer) GetChannelSetting(ctx context.Context) {
 }
+
+/* Member */
+
+func (s *channelServer) SearchMember(ctx context.Context) {
+}
+
+func (s *channelServer) MemberJoinChannel(ctx context.Context) {
+}
+
+func (s *channelServer) MemberExitChannel(ctx context.Context) {
+}
+
+func (s *channelServer) InviteMember() {
+}
+
+func (s *channelServer) UpdateMemberInfo() {
+}

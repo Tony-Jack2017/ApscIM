@@ -1,6 +1,6 @@
 syntax = "proto3";
-
 package ApscIM.data;
+option go_package = "data/rpc";
 
 message UserInfo {
 
