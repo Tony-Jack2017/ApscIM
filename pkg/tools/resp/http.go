@@ -1,5 +1,0 @@
-package resp
-
-func CallResp() {
-
-}
