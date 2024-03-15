@@ -1,5 +1,11 @@
 package user
 
+import "ApscIM/services/user"
+
+type ApiUser struct {
+	Client user.RpcUserClient
+}
+
 type UpdateUserInfoReq struct {
 	UserID      int32  `json:"user_id"`
 	Username    string `json:"username"`
