@@ -2,7 +2,6 @@ package mongo
 
 import (
 	"ApscIM/pkg/model/base/user"
-	"ApscIM/pkg/tools/db"
 	"context"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -29,10 +28,22 @@ type UserMgo struct {
 	col *mongo.Collection
 }
 
-func (u *UserMgo) CreateUsers(ctx context.Context, users []user.User) (err error) {
-	return db.InsertMany(ctx, u.col, users)
+func (u *UserMgo) CreateUserMgo(ctx context.Context, users *user.User) (err error) {
+	return nil
+}
+func (u *UserMgo) UpdateUserMgo(ctx context.Context, user *user.User) (err error) {
+	return nil
+}
+func (u *UserMgo) GetUsersMgo(ctx context.Context, user *user.User) (users *[]user.User, err error) {
+	return nil, nil
 }
 
-func (u *UserMgo) UpdateUser(ctx context.Context, user *user.User) (err error) {
+func (u *UserMgo) CreateUserSettingMgo(ctx context.Context, setting user.SettingUser) (err error) {
 	return nil
+}
+func (u *UserMgo) UpdateUserSettingMgo(ctx context.Context, setting user.SettingUser) (err error) {
+	return nil
+}
+func (u *UserMgo) GetUserSettingMgo(ctx context.Context, userID int32) (setting *user.SettingUser, err error) {
+	return nil, nil
 }

@@ -2,6 +2,6 @@ package user
 
 import "google.golang.org/grpc"
 
-type RpcUserClient struct {
+type RpcClientUser struct {
 	conn grpc.ClientConnInterface
 }

@@ -1,10 +1,6 @@
 package user
 
-import "ApscIM/services/user"
-
-type ApiUser struct {
-	Client user.RpcUserClient
-}
+// Base
 
 type UpdateUserInfoReq struct {
 	UserID      int32  `json:"user_id"`
@@ -18,5 +14,36 @@ type UpdateUserInfoResp struct {
 }
 
 type GetUserInfoReq struct {
-	UserID int32 `json:"user_id"`
+	AccountID int32 `json:"account_id"`
+	UserID    int32 `json:"user_id"`
+}
+
+type GetUserInfoResp struct {
+	User    `json:"user_info"`
+	Setting SettingUser `json:"setting"`
+}
+
+type GetUserListReq struct {
+	UserIds   []int32 `json:"user_ids"`
+	Condition User    `json:"condition"`
+}
+
+type GetUserResp struct {
+	UserList []User `json:"user_list"`
+}
+
+// Setting
+
+type SetSettingReq struct {
+}
+
+type SetSettingResp struct {
+}
+
+type GetSettingReq struct {
+	UserId int32 `json:"user_id"`
+}
+
+type GetSettingResp struct {
+	Setting SettingUser `json:"setting"`
 }

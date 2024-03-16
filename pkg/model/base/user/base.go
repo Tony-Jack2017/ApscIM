@@ -36,15 +36,15 @@ type SqlUserInterface interface {
 
 	/* Base */
 
-	CreateUser(ctx context.Context, user *User) (err error)
-	UpdateUser(ctx context.Context, user *User) (err error)
-	GetUsers(ctx context.Context, user *User) (users *[]User, err error)
+	CreateUserSql(ctx context.Context, user *User) (err error)
+	UpdateUserSql(ctx context.Context, user *User) (err error)
+	GetUsersSql(ctx context.Context, user *User) (users *[]User, err error)
 
 	/* Setting */
 
-	CreateUserSetting(ctx context.Context, setting SettingUser) (err error)
-	UpdateUserSetting(ctx context.Context, setting SettingUser) (err error)
-	GetUserSetting(ctx context.Context, userID int32) (setting *SettingUser, err error)
+	CreateUserSettingSql(ctx context.Context, setting SettingUser) (err error)
+	UpdateUserSettingSql(ctx context.Context, setting SettingUser) (err error)
+	GetUserSettingSql(ctx context.Context, userID int32) (setting *SettingUser, err error)
 }
 
 type RdsUserInterface interface {
@@ -53,13 +53,13 @@ type RdsUserInterface interface {
 type MgoUserInterface interface {
 	/* Base */
 
-	CreateUser(ctx context.Context, user *User) (err error)
-	UpdateUser(ctx context.Context, user *User) (err error)
-	GetUsers(ctx context.Context, user *User) (users *[]User, err error)
+	CreateUserMgo(ctx context.Context, user *User) (err error)
+	UpdateUserMgo(ctx context.Context, user *User) (err error)
+	GetUsersMgo(ctx context.Context, user *User) (users *[]User, err error)
 
 	/* Setting */
 
-	CreateUserSetting(ctx context.Context, setting SettingUser) (err error)
-	UpdateUserSetting(ctx context.Context, setting SettingUser) (err error)
-	GetUserSetting(ctx context.Context, userID int32) (setting *SettingUser, err error)
+	CreateUserSettingMgo(ctx context.Context, setting SettingUser) (err error)
+	UpdateUserSettingMgo(ctx context.Context, setting SettingUser) (err error)
+	GetUserSettingMgo(ctx context.Context, userID int32) (setting *SettingUser, err error)
 }

@@ -1,10 +1,10 @@
 package http
 
 import (
-	"ApscIM/api/common"
+	"ApscIM/api"
 	"github.com/gin-gonic/gin"
 )
 
 func CommonRoutes(commonChannel *gin.RouterGroup) {
-	commonChannel.POST("/send/codd", common.SendCode)
+	commonChannel.POST("/send/codd", api.SendCode)
 }
