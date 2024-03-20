@@ -6,12 +6,13 @@ import (
 )
 
 type UserApi struct {
-	Client *user.RpcClientUser
+	client *user.RpcClientUser
 }
 
 // Base
 
-func (u *UserApi) UserRegister(ctx *gin.Context) {}
+func (u *UserApi) UserRegister(ctx *gin.Context) {
+}
 
 func (u *UserApi) UserLogin(ctx *gin.Context) {
 
