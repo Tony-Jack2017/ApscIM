@@ -18,6 +18,7 @@ message GetChannelListReq {
   int32 user_id = 1;
   int32 channel_type = 2;
   int32 channel_status = 3;
+  data.Pagination page_info = 4;
 }
 
 message GetChannelListResp {

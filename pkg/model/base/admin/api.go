@@ -6,11 +6,12 @@ import (
 	"regexp"
 )
 
-type CreateAdminReq struct {
-	AdminName string `json:"admin_name" validate:"required,admin_validator"`
+type RegisterAdminReq struct {
+	AdminName  string `json:"admin_name" validate:"required,admin_validator"`
+	InviteCode int    `json:"invite_code"`
 }
 
-type CreateAdminResp struct {
+type RegisterAdminResp struct {
 	common.RespBase
 }
 

@@ -4,3 +4,8 @@ one = "{{.Name}} has {{.Count}} cat."
 other = "{{.Name}} has {{.Count}} cats."
 
 # request params
+[ParamsErrorMsg]
+description = "The message when binding request params occuring error"
+err = ""
+
+

@@ -6,6 +6,6 @@ type RpcClientChannel struct {
 	conn grpc.ClientConnInterface
 }
 
-func NewRpcClientChannel() RpcClientChannel {
-	return RpcClientChannel{}
+func NewRpcClientChannel() *RpcClientChannel {
+	return &RpcClientChannel{}
 }

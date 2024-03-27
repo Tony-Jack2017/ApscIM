@@ -6,13 +6,15 @@ import (
 )
 
 type Account struct {
-	ID        int32  `json:"id"`
-	AccountID int32  `json:"account_id"`
-	Password  string `json:"password"`
-	Email     string `json:"email"`
-	Mobile    string `json:"mobile"`
-	Region    int    `json:"region"`
-	Status    int    `json:"status"`
+	ID          int32  `json:"id"`
+	AccountID   int32  `json:"account_id"`
+	AccountType string `json:"accountType"`
+	IsAdmin     bool   `json:"is_admin"`
+	Password    string `json:"password"`
+	Email       string `json:"email"`
+	Mobile      string `json:"mobile"`
+	Region      int    `json:"region"`
+	Status      int    `json:"status"`
 	common.BaseTime
 }
 

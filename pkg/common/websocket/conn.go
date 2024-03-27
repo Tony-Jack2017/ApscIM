@@ -2,7 +2,7 @@ package websocket
 
 import (
 	"ApscIM/pkg/common/constants"
-	"ApscIM/pkg/middleware/token"
+	http2 "ApscIM/pkg/middleware/http"
 	"errors"
 	"fmt"
 	"github.com/gorilla/websocket"
@@ -55,7 +55,7 @@ func (ws *WsConnection) ParseArgs(writer http.ResponseWriter, req *http.Request)
 	if tokenStr == "" {
 		return errors.New("the token of connection is null")
 	} else {
-		_, err := token.ParseToken(tokenStr)
+		_, err := http2.ParseToken(tokenStr)
 		if err != nil {
 			return err
 		}

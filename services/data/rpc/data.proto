@@ -3,18 +3,16 @@ package ApscIM.data;
 option go_package = "data/rpc";
 
 message UserInfo {
-
 }
 
 message AdminInfo {
-
 }
 
 message ChannelInfo {
-  int32 Channel_id = 1;
-  int32 Channel_no = 2;
-  string Channel_name = 3;
-  int32 Channel_type = 4;
+  int32 channel_id = 1;
+  int32 channel_no = 2;
+  string channel_name = 3;
+  int32 channel_type = 4;
 }
 
 message MessageInfo {
@@ -28,4 +26,17 @@ message MessageInfo {
 }
 
 message FriendInfo {
+}
+
+// Common Data
+
+message Time {
+  string start_time = 1;
+  string end_time = 2;
+}
+
+message Pagination {
+  int32 current = 1;
+  int32 size = 2;
+  int32 total = 3;
 }

@@ -6,15 +6,15 @@ import (
 )
 
 type Channel struct {
-	ChannelID   int32  `json:"channel_id"`
-	ChannelNo   int32  `json:"channel_no"`
-	ChannelName string `json:"channel_name"`
-	ChannelType int32  `json:"channel_type"`
-	Cover       string `json:"cover"`
-	Description string `json:"description"`
-	InviteLink  string `json:"invite_link"`
-	Extra       string `json:"extra"`
-	//ChannelPublic int32  `json:"channel_public"`	// waiting
+	ChannelID     int32  `json:"channel_id"`
+	ChannelNo     int32  `json:"channel_no"`
+	ChannelName   string `json:"channel_name"`
+	ChannelType   int    `json:"channel_type"`
+	ChannelStatus int    `json:"channel_status"`
+	Cover         string `json:"cover"`
+	Description   string `json:"description"`
+	InviteLink    string `json:"invite_link"`
+	Extra         string `json:"extra"`
 	common.BaseTime
 }
 

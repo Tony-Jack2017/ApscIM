@@ -17,6 +17,7 @@ func Start() {
 /* Base */
 
 func (s *channelServer) SearchDesignateChannels(ctx context.Context) {
+
 }
 
 func (s *channelServer) CreateChannel(ctx context.Context) {

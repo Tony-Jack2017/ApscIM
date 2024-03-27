@@ -12,3 +12,9 @@ type RespWithData struct {
 	Message string      `json:"message"`
 	Data    interface{} `json:"data"`
 }
+
+type Pagination struct {
+	Current int `json:"current" form:"current"`
+	Size    int `json:"size" form:"size" `
+	Total   int `json:"total"`
+}

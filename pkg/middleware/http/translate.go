@@ -1,4 +1,4 @@
-package translate
+package http
 
 import (
 	"bytes"

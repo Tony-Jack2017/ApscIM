@@ -1,8 +1,7 @@
 package api
 
 import (
-	"ApscIM/pkg/middleware/common"
-	"ApscIM/pkg/middleware/translate"
+	"ApscIM/pkg/middleware/http"
 	"ApscIM/pkg/tools/req"
 	"github.com/gin-gonic/gin"
 )
@@ -10,9 +9,9 @@ import (
 func Run(svcPort int) {
 	r := gin.Default()
 
-	translate.Init()
+	http.Init()
 
-	r.Use(common.CorsMiddleware()).Use(translate.TransMiddleware())
+	r.Use(http.CorsMiddleware()).Use(http.TransMiddleware())
 
 	r.GET("/ping", func(c *gin.Context) {
 		req.WrapResp(c, 200, "This is message", "")

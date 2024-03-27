@@ -1,19 +1,17 @@
 package http
 
 import (
-	"ApscIM/pkg/middleware/common"
-	"ApscIM/pkg/middleware/translate"
-	"ApscIM/pkg/model/base/channel"
-	"ApscIM/pkg/tools/req"
+	"ApscIM/api"
+	"ApscIM/pkg/middleware/http"
+	"ApscIM/pkg/model/base/account"
 	"github.com/gin-gonic/gin"
-	"github.com/gin-gonic/gin/binding"
-	"github.com/go-playground/validator/v10"
 )
 
-func Init() {
-	if v, ok := binding.Validator.Engine().(*validator.Validate); ok {
-		channel.ValidatorChannel(v)
-	}
+func init() {
+	http.Init()
+	account.NewActValidator()
+	api.NewChannelApi()
+	api.NewAdminApi()
 }
 
 func RegisterRoutesCommon(router *gin.RouterGroup) {
@@ -36,15 +34,7 @@ func RegisterRoutesBack(router *gin.RouterGroup) {
 
 func Run() {
 	r := gin.Default()
-
-	translate.Init()
-
-	r.Use(common.CorsMiddleware()).Use(translate.TransMiddleware())
-
-	r.GET("/ping", func(c *gin.Context) {
-		req.WrapResp(c, 200, "This is message", "")
-	})
-
+	r.Use(http.CorsMiddleware()).Use(http.TransMiddleware())
 	r.Run("localhost:8080")
 
 	// routes

@@ -7,4 +7,5 @@ import (
 
 func AdminRoutes(adminChannel *gin.RouterGroup) {
 	adminChannel.POST("/login", api.AdminLogin)
+	adminChannel.POST("/register", api.AdminRegister)
 }
