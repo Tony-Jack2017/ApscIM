@@ -20,7 +20,7 @@ func CheckBindReq[C, R any](ctx *gin.Context, req *R) (*R, error) {
 	return req, nil
 }
 
-func WrapResp(ctx *gin.Context, status int, code int, message string, success bool, data interface{}) {
+func WrapResp(ctx *gin.Context, status int, code int, message string, messageID string, success bool, data interface{}) {
 	value, ok := ctx.Get("accept-lang")
 	var resp interface{}
 	var respMessage string
@@ -29,7 +29,8 @@ func WrapResp(ctx *gin.Context, status int, code int, message string, success bo
 		if !strOk {
 			respMessage = message
 		} else {
-			translateMsg := http.LocalTranslate(str, message)
+			fmt.Println(str)
+			translateMsg := http.LocalTranslate(str, messageID)
 			respMessage = translateMsg
 		}
 	} else {

@@ -1,4 +1,5 @@
 [PersonCats]
 description = "The number of cats a person has"
 hash = "sha1-f937a0e05e19bfe6cd70937c980eaf1f9832f091"
-other = "{{.Name}} have {{.Count}} cats."
+one = "{{.Name}}有{{.Count}}只猫."
+other = "{{.Name}}有{{.Count}}只猫."

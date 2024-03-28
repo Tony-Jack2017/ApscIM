@@ -61,13 +61,6 @@ func (n *NotifyChannel) TableName() string {
 	return "apsc_im_channel_notifies"
 }
 
-type SqlChannel struct {
-	base    Channel
-	setting SettingChannel
-	member  MemberChannel
-	notify  NotifyChannel
-}
-
 type SqlChannelInterface interface {
 
 	/* Base */
@@ -94,6 +87,8 @@ type SqlChannelInterface interface {
 }
 
 type RdsChannelInterface interface {
+	AddChannel(channelID int32, userIds []int32) (err error)
+	SetChannel(channelID int32) (err error)
 }
 
 type MgoChannelInterface interface {
@@ -119,4 +114,18 @@ type MgoChannelInterface interface {
 	CreateNotify(ctx context.Context, notify NotifyChannel) (err error)
 	UpdateNotify(ctx context.Context, notify NotifyChannel) (err error)
 	GetNotifies(ctx context.Context, channelID int32) (notifies *[]NotifyChannel, err error)
+}
+
+type DatabaseChannel struct {
+	mysql SqlChannelInterface
+	redis RdsChannelInterface
+	mongo MgoChannelInterface
+}
+
+func NewChannelDatabase() *DatabaseChannel {
+	return &DatabaseChannel{
+		mysql: nil,
+		redis: nil,
+		mongo: nil,
+	}
 }

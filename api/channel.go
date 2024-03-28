@@ -16,15 +16,16 @@ func NewChannelApi() *ChannelApi {
 	}
 }
 
-func (c *ChannelApi) CreateChannel(context *gin.Context) {
-
+func (c *ChannelApi) CreateChannel(ctx *gin.Context) {
 }
 
-func (c *ChannelApi) GetChannelByUser(context *gin.Context) {
+func (c *ChannelApi) GetChannelByUser(ctx *gin.Context) {
 }
 
-func (c *ChannelApi) UpdateChannelInfo(context *gin.Context) {
+func (c *ChannelApi) UpdateChannelInfo(ctx *gin.Context) {
 }
 
-func (c *ChannelApi) SetChannelSetting(context *gin.Context) {
+// Setting
+
+func (c *ChannelApi) SetChannelSetting(ctx *gin.Context) {
 }

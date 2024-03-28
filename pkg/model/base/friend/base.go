@@ -38,12 +38,6 @@ func (s *SettingFriend) TableName() string {
 	return "apsc_im_friend_settings"
 }
 
-type SqlFriend struct {
-	base    Friend
-	apply   AddFriendApply
-	setting SettingFriend
-}
-
 type SqlFriendInterface interface {
 
 	/* Base */
@@ -68,4 +62,14 @@ type RdsFriendInterface interface {
 }
 
 type MgoFriendInterface interface {
+}
+
+type DatabaseFriend struct {
+	mysql SqlFriendInterface
+	redis RdsFriendInterface
+	mongo MgoFriendInterface
+}
+
+func NewFriendDatabase() {
+
 }

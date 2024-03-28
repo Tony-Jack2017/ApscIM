@@ -6,14 +6,14 @@ import (
 	"gorm.io/gorm"
 )
 
+type UserSql struct {
+	conn *gorm.DB
+}
+
 func NewUserSql() (user.SqlUserInterface, error) {
 	return &UserSql{
 		conn: &gorm.DB{},
 	}, nil
-}
-
-type UserSql struct {
-	conn *gorm.DB
 }
 
 func (u *UserSql) CreateUserSql(ctx context.Context, user *user.User) (err error) {

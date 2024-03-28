@@ -14,17 +14,16 @@ type Admin struct {
 	common.BaseTime
 }
 
-type SettingAdmin struct {
-	AllowLoginOtherDevice bool `json:"allow_login_other_device"`
-}
-
 func (a *Admin) TableName() string {
 	return "apsc_im_admins"
 }
 
-type SqlAdmin struct {
-	base    Admin
-	setting SettingAdmin
+type SettingAdmin struct {
+	AllowLoginOtherDevice bool `json:"allow_login_other_device"`
+}
+
+func (s *SettingAdmin) TableName() string {
+	return "apsc_im_admin_settings"
 }
 
 type SqlAdminInterface interface {
@@ -46,4 +45,13 @@ type RdsAdminInterface interface {
 }
 
 type MgoAdminInterface interface {
+}
+
+type DatabaseAdmin struct {
+	mysql SqlAdminInterface
+	redis RdsAdminInterface
+	mongo MgoAdminInterface
+}
+
+func NewAdminDatabase() {
 }

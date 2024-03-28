@@ -6,7 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func Run(svcPort int) {
+func Run() {
 	r := gin.Default()
 
 	http.Init()
@@ -14,7 +14,7 @@ func Run(svcPort int) {
 	r.Use(http.CorsMiddleware()).Use(http.TransMiddleware())
 
 	r.GET("/ping", func(c *gin.Context) {
-		req.WrapResp(c, 200, "This is message", "")
+		req.WrapResp(c, 200, 101, "This is message", "PersonCats", true, nil)
 	})
 
 	r.Run("localhost:8080")

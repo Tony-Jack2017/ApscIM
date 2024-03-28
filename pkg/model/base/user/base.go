@@ -1,6 +1,7 @@
 package user
 
 import (
+	"ApscIM/pkg/implementation/mysql"
 	"ApscIM/pkg/model/common"
 	"context"
 )
@@ -62,4 +63,24 @@ type MgoUserInterface interface {
 	CreateUserSettingMgo(ctx context.Context, setting SettingUser) (err error)
 	UpdateUserSettingMgo(ctx context.Context, setting SettingUser) (err error)
 	GetUserSettingMgo(ctx context.Context, userID int32) (setting *SettingUser, err error)
+}
+
+type DatabaseUser struct {
+	mysql SqlUserInterface
+	redis RdsUserInterface
+	mongo MgoUserInterface
+}
+
+func NewUserDatabase() *DatabaseUser {
+
+	sql, err := mysql.NewUserSql()
+	if err != nil {
+		panic("connect mysql failed")
+	}
+
+	return &DatabaseUser{
+		mysql: sql,
+		redis: nil,
+		mongo: nil,
+	}
 }

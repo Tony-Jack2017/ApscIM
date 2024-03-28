@@ -57,3 +57,12 @@ type RdsAccountInterface interface {
 
 type MgoAccountInterface interface {
 }
+
+type DatabaseAccount struct {
+	mysql SqlAccountInterface
+	redis RdsAccountInterface
+	mongo MgoAccountInterface
+}
+
+func NewAccountDatabase() {
+}

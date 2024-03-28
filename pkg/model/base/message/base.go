@@ -37,3 +37,12 @@ type RdsMessageInterface interface {
 
 type MgoMessageInterface interface {
 }
+
+type DatabaseMessage struct {
+	mysql SqlMessageInterface
+	redis RdsMessageInterface
+	mongo MgoMessageInterface
+}
+
+func NewMessageDatabase() {
+}

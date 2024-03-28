@@ -7,7 +7,8 @@ message CreateChannelReq {
   int32 channel_name = 1;
   string description = 2;
   string ChannelCover = 3;
-  repeated int32 user_ids = 4;
+  int32 channel_type = 4;
+  repeated int32 user_ids = 5;
 }
 
 message CreateChannelResp {
@@ -15,7 +16,7 @@ message CreateChannelResp {
 }
 
 message GetChannelListReq {
-  int32 user_id = 1;
+  int32 member_id = 1;
   int32 channel_type = 2;
   int32 channel_status = 3;
   data.Pagination page_info = 4;
@@ -23,4 +24,5 @@ message GetChannelListReq {
 
 message GetChannelListResp {
   repeated data.ChannelInfo channel_list = 3;
+  data.Pagination page_info = 4;
 }

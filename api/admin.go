@@ -15,8 +15,19 @@ func NewAdminApi() *AdminApi {
 	}
 }
 
-func AdminRegister(ctx *gin.Context) {
+func (a *AdminApi) AdminRegister(ctx *gin.Context) {
 }
 
-func AdminLogin(context *gin.Context) {
+func (a *AdminApi) AdminLogin(ctx *gin.Context) {
+}
+
+func (a *AdminApi) UpdateAdminInfo(ctx *gin.Context) {
+}
+
+func (a *AdminApi) GetAdminList(ctx *gin.Context) {
+}
+
+// Setting
+
+func (a *AdminApi) SetAdminSetting(ctx *gin.Context) {
 }
